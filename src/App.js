@@ -18,6 +18,7 @@ function App({count,increase, decrease }) {
     <div className="App">
       <h1>Redux アプリケーション</h1>
       <p>Count: {count}</p>
+      <div>Post側でのカウント実装</div>
       <button onClick={increase}>Up</button>
       <button onClick={decrease}>Down</button>
       <Count />
@@ -32,7 +33,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-//関数：store
+//関数：propsの形でdispatch{action}を渡すことができる
 const mapDispatchToProps = (dispatch) => {
   return {
     increase: () => dispatch({ type: "INCREASE_COUNT" }),
@@ -43,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
 /**
  * 【流れ】
  * ①<Provider store={store}></Provider>の形でApp.jsにpropsとしてstoreが渡される
- * ②connect関数で引数で受けたmapStateToProps関数を利用してstoreのstateをpropsにする
+ * ②connect関数で引数で受けたmapStateToProps,mapDispatchToProps関数を利用してstoreのstateをpropsにする
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
  */
