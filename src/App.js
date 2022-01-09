@@ -21,8 +21,8 @@ function App({count,posts}) {
 //関数：store内のstateをpropsで扱う
 const mapStateToProps = (state) => {
   return { 
-    count: state.count,
-    posts: state.posts 
+    count: state.countReducer.count,
+    posts: state.postsReducer.posts 
   };
 };
 
