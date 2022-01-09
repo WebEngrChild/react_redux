@@ -5,24 +5,31 @@ import "./App.css";
  */
 import { connect } from "react-redux";
 
-function App({count,posts}) {
+import Count from './components/Count';
+
+function App({dispatch, count}) {
+  const increase = () => {
+    dispatch({ type: "INCREASE_COUNT" });
+  };
+  const decrease = () => {
+    dispatch({ type: "DECREASE_COUNT" });
+  };
+
   return (
-    <>
-      <div>Countコンポーネント:{count}</div>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li> 
-        ))}
-      </ul>
-    </>
+    <div className="App">
+      <h1>Redux Learn</h1>
+      <p>Count: {count}</p>
+      <button onClick={increase}>Up</button>
+      <button onClick={decrease}>Down</button>
+      <Count />
+    </div>
   );
 }
 
 //関数：store内のstateをpropsで扱う
 const mapStateToProps = (state) => {
   return { 
-    count: state.countReducer.count,
-    posts: state.postsReducer.posts 
+    count: state.countReducer.count
   };
 };
 
