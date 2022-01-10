@@ -4,7 +4,7 @@ import "./App.css";
  * ライブラリ(react-redux)からDL
  */
 import { connect } from "react-redux";
-import Comment from './components/Comment';
+import Comment from './components/Comment.js';
 
 /**
  * dispatch関数はconect関数からデフォルトで渡される
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Redux アプリケーション</h1>
-      <div>外部APIから取得のコメント</div>
+      <div>【Reduc-Thunk版】外部APIから取得のコメント</div>
       <Comment />
     </div>
   );

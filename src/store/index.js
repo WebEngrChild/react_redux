@@ -26,7 +26,7 @@ export default store;
  * 一方でredux-Thunkの場合はstore側で別枠でexportしている
  * 他ファイルで利用できるようにexportしている
  */
- export const getPosts = () => {
+ export const getComments = () => {
   return async (dispatch) => {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await res.json();
