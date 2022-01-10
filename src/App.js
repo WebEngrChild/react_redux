@@ -4,7 +4,6 @@ import "./App.css";
  * ライブラリ(react-redux)からDL
  */
 import { connect } from "react-redux";
-import Count from './components/Post';
 import Comment from './components/Comment';
 
 /**
@@ -13,16 +12,10 @@ import Comment from './components/Comment';
  * store/index.js/reducerメソッドで条件に合わせて更新処理が走る
  */
 
-function App({ count, increase, decrease }) {
-
+function App() {
   return (
     <div className="App">
       <h1>Redux アプリケーション</h1>
-      <p>Count: {count}</p>
-      <div>App側でのカウント実装</div>
-      <button onClick={increase}>Up</button>
-      <button onClick={decrease}>Down</button>
-      <Count />
       <div>外部APIから取得のコメント</div>
       <Comment />
     </div>
@@ -32,16 +25,7 @@ function App({ count, increase, decrease }) {
 //関数：store内のstateをpropsで扱う
 const mapStateToProps = (state) => {
   return { 
-    count: state.countReducer.count,
-    comments: state.commentReducer.comments,
-  };
-};
-
-//関数：propsの形でdispatch{action}を渡すことができる
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increase: () => dispatch({ type: "INCREASE_COUNT" }),
-    decrease: () => dispatch({ type: "DECREASE_COUNT" }),
+    comments: state.comments,
   };
 };
 
@@ -52,4 +36,4 @@ const mapDispatchToProps = (dispatch) => {
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
  */
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
