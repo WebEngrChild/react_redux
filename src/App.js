@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Redux アプリケーション</h1>
-      <div>【Reduc-Thunk版】外部APIから取得のコメント</div>
+      <div>【Redux-Thunk版】外部APIから取得のコメント</div>
       <Comment />
     </div>
   );
