@@ -16,24 +16,14 @@ const countReducer = (state = {count: 100}, action) => {
   }
 };
 
-//②Post用Reduder
-const postsReducer = (
-  state = {
-    posts: [
-      { id: 1, title: 'Reduxについて' },
-      {
-        id: 2,
-        title: 'ReduxのHooksについて',
-      },
-    ],
-  }
-) => {
-  return state;
-};
-
-//③comment用Reduder
+//②comment用Reduder
 const commentReducer = (
-  state = {comments: []}, action) => {
+  state = {
+    comments: [
+      { id: 1, title: 'Reduxについて' },
+      { id: 2, title: 'ReduxのHooksについて',},
+    ],
+  }, action) => {
   switch (action.type) {
     case 'GET_POST_DATA':
       return { ...state, comments: action.payload };
@@ -45,7 +35,6 @@ const commentReducer = (
 //Reducerの結合
 const rootReducer = combineReducers({
   countReducer,
-  postsReducer,
   commentReducer,
 });
 

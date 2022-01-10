@@ -4,8 +4,8 @@ import "./App.css";
  * ライブラリ(react-redux)からDL
  */
 import { connect } from "react-redux";
-import Count from './components/Post';
-import Comment from './components/Comment';
+import Count from './components/Count.js';
+import Comment from './components/Comment.js';
 
 /**
  * dispatch関数はconect関数からデフォルトで渡される
@@ -22,8 +22,9 @@ function App({ count, increase, decrease }) {
       <div>App側でのカウント実装</div>
       <button onClick={increase}>Up</button>
       <button onClick={decrease}>Down</button>
+      <div>Count側でのカウント実装</div>
       <Count />
-      <div>外部APIから取得のコメント</div>
+      <div>Comment側での外部APIから取得のコメント実装</div>
       <Comment />
     </div>
   );
