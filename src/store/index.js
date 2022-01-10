@@ -31,10 +31,22 @@ const postsReducer = (
   return state;
 };
 
+//③comment用Reduder
+const commentReducer = (
+  state = {comments: []}, action) => {
+  switch (action.type) {
+    case 'GET_POST_DATA':
+      return { ...state, comments: action.payload };
+    default:
+      return state;
+  }
+};
+
 //Reducerの結合
 const rootReducer = combineReducers({
   countReducer,
   postsReducer,
+  commentReducer,
 });
 
 //reducerの状態を取得

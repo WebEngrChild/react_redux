@@ -5,6 +5,7 @@ import "./App.css";
  */
 import { connect } from "react-redux";
 import Count from './components/Post';
+import Comment from './components/Comment';
 
 /**
  * dispatch関数はconect関数からデフォルトで渡される
@@ -12,16 +13,18 @@ import Count from './components/Post';
  * store/index.js/reducerメソッドで条件に合わせて更新処理が走る
  */
 
-function App({count,increase, decrease }) {
+function App({ count, increase, decrease }) {
 
   return (
     <div className="App">
       <h1>Redux アプリケーション</h1>
       <p>Count: {count}</p>
-      <div>Post側でのカウント実装</div>
+      <div>App側でのカウント実装</div>
       <button onClick={increase}>Up</button>
       <button onClick={decrease}>Down</button>
       <Count />
+      <div>外部APIから取得のコメント</div>
+      <Comment />
     </div>
   );
 }
@@ -29,7 +32,8 @@ function App({count,increase, decrease }) {
 //関数：store内のstateをpropsで扱う
 const mapStateToProps = (state) => {
   return { 
-    count: state.countReducer.count
+    count: state.countReducer.count,
+    comments: state.commentReducer.comments,
   };
 };
 
