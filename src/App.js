@@ -22,7 +22,10 @@ function App() {
   );
 }
 
-//関数：store内のstateをpropsで扱う
+/**
+ * 関数：store内のstateをpropsで扱う
+ * ここではcombineReducerを利用していないのでReducer名は不要
+ */
 const mapStateToProps = (state) => {
   return { 
     comments: state.comments,
@@ -32,7 +35,7 @@ const mapStateToProps = (state) => {
 /**
  * 【流れ】
  * ①<Provider store={store}></Provider>の形でApp.jsにpropsとしてstoreが渡される
- * ②connect関数で引数で受けたmapStateToProps,mapDispatchToProps関数を利用してstoreのstateをpropsにする
+ * ②connect関数で引数で受けたmapStateToProps関数を利用してstoreのstateをpropsにする
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
  */
