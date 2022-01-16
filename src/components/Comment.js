@@ -15,6 +15,7 @@ const Comment = () => {
       });
     };
     getPosts();
+    //staticであることが保証されているため第二引数のdispatchは入力しなくても良いらしい
   }, [dispatch]);
 
   return (

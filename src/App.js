@@ -18,7 +18,7 @@ function App({ count, increase, decrease }) {
   return (
     <div className="App">
       <h1>Redux アプリケーション</h1>
-      <p>Count: {count}</p>
+      <p>conect関数を利用したCount: {count}</p>
       <div>App側でのカウント実装</div>
       <button onClick={increase}>Up</button>
       <button onClick={decrease}>Down</button>
@@ -30,17 +30,22 @@ function App({ count, increase, decrease }) {
   );
 }
 
-//関数：store内のstateをpropsで扱う
-const mapStateToProps = (state) => {
+/** 
+ * 関数：store内のstateをpropsで扱う
+ * jsx内で{count}の形で利用することができる
+*/
+const mapStateToProps = (store) => {
   return { 
-    count: state.countReducer.count,
-    comments: state.commentReducer.comments,
+    count: store.countReducer.count,
   };
 };
 
-//関数：propsの形でdispatch{action}を渡すことができる
+/**
+ * 関数：reducer実行関数dispatchを各componentで利用するための関数{increase}と紐づけている
+ */
 const mapDispatchToProps = (dispatch) => {
   return {
+    //定義：関数（アロー）の形
     increase: () => dispatch({ type: "INCREASE_COUNT" }),
     decrease: () => dispatch({ type: "DECREASE_COUNT" }),
   };
@@ -49,7 +54,9 @@ const mapDispatchToProps = (dispatch) => {
 /**
  * 【流れ】
  * ①<Provider store={store}></Provider>の形でApp.jsにpropsとしてstoreが渡される
- * ②connect関数で引数で受けたmapStateToProps,mapDispatchToProps関数を利用してstoreのstateをpropsにする
+ * ②connect関数で引数で受けたmapStateToProps,mapDispatchToProps関数を利用して
+ * store内のstateとredubcer実行用のdispatchが呼び出される豆の関数を定義
+ * store内ではstate(大元).hodereduce.state(値)という形になっている
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
  */

@@ -1,4 +1,11 @@
+//reduxからstore構築、reducerマージ関数を取得
 import { createStore, combineReducers } from 'redux';
+
+/**
+ * Q：store内のどこにdispatchで呼び出されるaction書いても同じじゃないの？
+ *  ：呼び出し側でのdispatch({ type: "hoge" })では特にreducerの指定をしていないし
+ * A：reducerは呼び出された際に引数で指定されているstate(定義名は同じだがそれぞれ違う)に更新をかける
+ */
 
 //①count用Reduder
 const countReducer = (state = {count: 100}, action) => {
@@ -33,13 +40,15 @@ const commentReducer = (
 };
 
 //Reducerの結合
+//これをすることで各component内でstate.hogereduder.値という形で複数のreducerに紐づくstateを取得することができる
 const rootReducer = combineReducers({
   countReducer,
   commentReducer,
 });
 
 //reducerの状態を取得
+//この段階でstore（大元＝tootReducer）という形になっている
 const store = createStore(rootReducer);
-console.log(store.getState());
+console.log(store.getState());//commentReducer,commentReducerが表示される
 
 export default store;
