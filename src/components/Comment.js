@@ -6,6 +6,7 @@ const Comment = () => {
   const comments = useSelector((state) => state.commentReducer.comments);
 
   useEffect(() => {
+    //通常のreduxでの非同期処理はuseEffect内に関数を定義している
     const getPosts = async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts');
       const data = await res.json();
