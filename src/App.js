@@ -6,12 +6,6 @@ import "./App.css";
 import { connect } from "react-redux";
 import Comment from './components/Comment.js';
 
-/**
- * dispatch関数はconect関数からデフォルトで渡される
- * JSX内イベントに紐づくdispatchが実行
- * store/index.js/reducerメソッドで条件に合わせて更新処理が走る
- */
-
 function App() {
   return (
     <div className="App">
