@@ -7,6 +7,7 @@ const Comment = () => {
   const comments = useSelector((state) => state.comments);
 
   useEffect(() => {
+    //引数にstore側で定義したメソッドを渡している
     dispatch(getComments());
   }, [dispatch]);
 
