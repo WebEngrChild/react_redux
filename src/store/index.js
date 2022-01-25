@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 /**
  * Q：store内のどこにdispatchで呼び出されるaction書いても同じじゃないの？
  *  ：呼び出し側でのdispatch({ type: "hoge" })では特にreducerの指定をしていないし
- * A：reducerは呼び出された際に引数で指定されているstate(定義名は同じだがそれぞれ違う)に更新をかける
+ * A：reducerは呼び出された際に第一引数で指定されているstate(定義名は同じだがそれぞれ違う)に更新をかける
  */
 
 //①count用Reduder
