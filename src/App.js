@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch) => {
  * 【流れ】
  * ①<Provider store={store}></Provider>の形でApp.jsにpropsとしてstoreが渡される
  * ②connect関数で引数で受けたmapStateToProps,mapDispatchToProps関数を利用して
- * store内のstateとredubcer実行用のdispatchが呼び出される豆の関数を定義
+ * store内のstateとredubcer実行用のdispatchをコンポーネント内でprops{hoge}の形で利用できるようにしている
  * store内ではstate(大元).hodereduce.state(値)という形になっている
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
