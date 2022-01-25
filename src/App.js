@@ -42,6 +42,7 @@ const mapStateToProps = (store) => {
 
 /**
  * 関数：reducer実行関数dispatchを各componentで利用するための関数{increase}と紐づけている
+ ** jsx内で{increase}の形で利用することができる
  */
 const mapDispatchToProps = (dispatch) => {
   return {
