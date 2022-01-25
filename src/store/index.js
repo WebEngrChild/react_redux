@@ -47,7 +47,7 @@ const rootReducer = combineReducers({
 });
 
 //reducerの状態を取得
-//この段階でstore（大元＝tootReducer）という形になっている
+//この段階でstore（大元＝rootReducer）という形になっている
 const store = createStore(rootReducer);
 console.log(store.getState());//commentReducer,commentReducerが表示される
 
