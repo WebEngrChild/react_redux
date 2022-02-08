@@ -62,4 +62,6 @@ const mapDispatchToProps = (dispatch) => {
  * ③connect関数の返り値は関数であるためそのままAppを引数にして実行
  * ④Appではcomponent内でpropsで渡されたstateを利用できる
  */
+
+// conect関数を利用したstoreアクセス方法
 export default connect(mapStateToProps, mapDispatchToProps)(App);

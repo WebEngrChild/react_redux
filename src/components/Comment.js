@@ -10,6 +10,7 @@ const Comment = () => {
     const getPosts = async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts');
       const data = await res.json();
+      // action.typeとaction.payloadの形でstore側で取得される
       dispatch({
         type: 'GET_POST_DATA',
         payload: data,
