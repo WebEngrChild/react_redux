@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 /**
  * Q：store内のどこにdispatchで呼び出されるaction書いても同じじゃないの？
  *  ：呼び出し側でのdispatch({ type: "hoge" })では特にreducerの指定をしていないし
- * A：reducerは呼び出された際に第一引数で指定されているstate(定義名は同じだがそれぞれ違う)に更新をかける
+ * A：reducerは呼び出された際に第一引数で指定されている初期値のstate(定義名は同じだがそれぞれ違う)に更新をかける
  */
 
 //①count用Reduder
@@ -33,6 +33,7 @@ const commentReducer = (
   }, action) => {
   switch (action.type) {
     case 'GET_POST_DATA':
+      // スプレッド演算子で該当のkeyにまとめて代入している
       return { ...state, comments: action.payload };
     default:
       return state;
