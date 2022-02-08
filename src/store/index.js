@@ -33,7 +33,7 @@ const commentReducer = (
   }, action) => {
   switch (action.type) {
     case 'GET_POST_DATA':
-      // スプレッド演算子で該当のkeyにまとめて代入している
+      // スプレッド演算子で該当のkey=comment:にまとめて代入している。デフォルト値は上書きされる。
       return { ...state, comments: action.payload };
     default:
       return state;
