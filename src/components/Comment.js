@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+// storeからstateを取得、storeデータ更新用関数を取得
 import { useSelector, useDispatch } from 'react-redux';
+// store側で定義したdispatchを返す関数を取得
 import { getComments } from '../store/index';
 
 const Comment = () => {
@@ -7,7 +9,7 @@ const Comment = () => {
   const comments = useSelector((state) => state.comments);
 
   useEffect(() => {
-    //引数にstore側で定義したメソッドを渡している
+    //引数にstore側で定義したdispatchを返却するメソッドを渡している
     dispatch(getComments());
   }, [dispatch]);
 
