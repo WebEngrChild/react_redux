@@ -14,7 +14,7 @@ const commentReducer = (
 };
 
 /**
- * applyMiddlewareを利用してredux-thunkを利用
+ * applyMiddlewareを設定（storeとcomponentの間に位置する？）してMiddleware内で非同期処理のredux-thunkを利用
  * reducerを渡してstoreを作成
  */
 const store = createStore(commentReducer, applyMiddleware(thunk));
